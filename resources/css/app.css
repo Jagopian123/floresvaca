@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+@theme {
+    /* Colors */
+    --color-ocean:  #0F172A;
+    --color-navy:   #1E3A5F;
+    --color-sand:   #D6B98C;
+    --color-cream:  #F8F5F0;
+    --color-forest: #2D5A4A;
+
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-alt:     'Manrope', system-ui, sans-serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --font-sans:    'Inter', system-ui, sans-serif;
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--color-ocean); -webkit-font-smoothing: antialiased; }
+
+/* Layout utilities */
+.section-padding  { @apply px-5 md:px-10 lg:px-16 xl:px-24; }
+.section-title    { font-family: var(--font-heading); @apply text-4xl md:text-5xl font-light leading-tight; color: var(--color-ocean); }
+.section-subtitle { font-family: var(--font-alt); @apply text-xs uppercase tracking-[0.2em]; color: var(--color-sand); }
+
+/* Buttons */
+.btn-primary {
+    font-family: var(--font-alt);
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-widest px-6 py-3.5 transition-colors duration-300;
+    background-color: var(--color-ocean);
+    color: var(--color-cream);
+}
+.btn-primary:hover { background-color: var(--color-navy); }
+
+.btn-sand {
+    font-family: var(--font-alt);
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-widest px-6 py-3.5 transition-colors duration-300;
+    background-color: var(--color-sand);
+    color: var(--color-ocean);
+}
+.btn-sand:hover { background-color: var(--color-ocean); color: var(--color-cream); }
+
+.btn-outline {
+    font-family: var(--font-alt);
+    @apply inline-flex items-center gap-2 border text-xs uppercase tracking-widest px-6 py-3.5 transition-colors duration-300;
+    border-color: var(--color-ocean);
+    color: var(--color-ocean);
+}
+.btn-outline:hover { background-color: var(--color-ocean); color: var(--color-cream); }
+
+.card-hover { @apply transition-shadow duration-300 hover:shadow-lg; }
