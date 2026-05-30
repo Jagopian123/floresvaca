@@ -48,7 +48,6 @@ class FrontendController extends Controller
     public function destination(string $slug): View
     {
         $destination = Destination::where('slug', $slug)->firstOrFail();
-        $destination->load('trips');
         $settings = Setting::allKeyed();
 
         return view('pages.destination-detail', compact('destination', 'settings'));
