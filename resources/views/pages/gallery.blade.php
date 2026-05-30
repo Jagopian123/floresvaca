@@ -9,7 +9,7 @@
 <section class="relative h-[60vh] min-h-[440px] flex items-end overflow-hidden">
     <div class="absolute inset-0">
         <img
-            src="https://images.unsplash.com/photo-1518259102261-b40117eabbc9?w=1920&q=85"
+            src="{{ $settings['page_gallery_image'] ?? 'https://images.unsplash.com/photo-1518259102261-b40117eabbc9?w=1920&q=85' }}"
             alt="Flores Gallery"
             class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/30 to-[#0F172A]/10"></div>
