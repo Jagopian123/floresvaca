@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\TripResource\Pages;
-use App\Models\Destination;
 use App\Models\Trip;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
@@ -47,12 +46,6 @@ class TripResource extends Resource
 
             Section::make('Basic Info')
                 ->components([
-                    Select::make('destination_id')
-                        ->label('Destination')
-                        ->options(Destination::orderBy('name')->pluck('name', 'id'))
-                        ->searchable()
-                        ->required(),
-
                     Select::make('category')
                         ->label('Category')
                         ->options([

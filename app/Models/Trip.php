@@ -3,13 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Trip extends Model
 {
     protected $fillable = [
-        'destination_id',
         'category',
         'title',
         'slug',
@@ -39,11 +37,6 @@ class Trip extends Model
                 $model->image = $model->getOriginal('image');
             }
         });
-    }
-
-    public function destination(): BelongsTo
-    {
-        return $this->belongsTo(Destination::class);
     }
 
     public function itineraries(): HasMany
