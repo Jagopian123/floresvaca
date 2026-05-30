@@ -31,7 +31,7 @@ class DestinationResource extends Resource
 {
     protected static ?string $model = Destination::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-alt';
 
     protected static ?string $navigationLabel = 'Destinations';
 

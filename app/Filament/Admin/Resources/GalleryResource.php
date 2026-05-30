@@ -25,7 +25,7 @@ class GalleryResource extends Resource
     protected static ?string $model = Gallery::class;
 
     /** @phpstan-ignore-next-line */
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $navigationLabel = 'Gallery';
 

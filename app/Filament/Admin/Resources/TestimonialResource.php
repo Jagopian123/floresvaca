@@ -19,7 +19,7 @@ class TestimonialResource extends Resource
 {
     protected static ?string $model = Testimonial::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
 
     protected static ?string $navigationLabel = 'Testimonials';
 
