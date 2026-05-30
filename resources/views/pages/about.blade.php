@@ -36,7 +36,7 @@
             <div class="sticky top-28">
                 <div class="relative aspect-[3/4] overflow-hidden">
                     <img
-                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+                        src="{{ $settings['about_who_image'] ?? 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80' }}"
                         alt="Flores coastal view"
                         class="w-full h-full object-cover">
                 </div>

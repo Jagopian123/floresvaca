@@ -88,6 +88,21 @@ class ManageSettings extends Page implements HasSchemas
                     ])
                     ->columns(1),
 
+                Section::make('Homepage — Why Travel With Us')
+                    ->description('Images for the "Why Travel With Us" section on the homepage')
+                    ->components([
+                        $imageUpload('why_us_image_main',  'Main Image (large)',          'settings'),
+                        $imageUpload('why_us_image_small', 'Secondary Image (small overlay)', 'settings'),
+                    ])
+                    ->columns(2),
+
+                Section::make('About Page — Who We Are')
+                    ->description('Image for the "Who We Are" section on the About page')
+                    ->components([
+                        $imageUpload('about_who_image', 'Who We Are Image', 'settings'),
+                    ])
+                    ->columns(1),
+
                 Section::make('Page Banners')
                     ->components([
                         $imageUpload('page_about_image',        'About Page Banner',        'settings'),

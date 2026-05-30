@@ -256,11 +256,11 @@
             {{-- Left: Image collage --}}
             <div class="relative">
                 <div class="aspect-[3/4] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=800&q=80"
+                    <img src="{{ $settings['why_us_image_main'] ?? 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=800&q=80' }}"
                          alt="Flores landscape" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 <div class="absolute -bottom-6 -right-6 w-48 h-48 md:w-64 md:h-64 overflow-hidden border-4 border-[#F8F5F0] hidden md:block">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"
+                    <img src="{{ $settings['why_us_image_small'] ?? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80' }}"
                          alt="Local culture" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 {{-- Years badge --}}
