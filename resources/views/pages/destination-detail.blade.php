@@ -25,11 +25,6 @@
             <span class="text-[#D6B98C]">{{ $destination->name }}</span>
         </nav>
 
-        @if($destination->location)
-            <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-4" style="font-family: 'Manrope', sans-serif;">
-                {{ $destination->location }}
-            </p>
-        @endif
 
         <h1 class="text-[#F8F5F0] font-light leading-tight max-w-3xl"
             style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5rem);">
@@ -63,29 +58,6 @@
                     <h3 class="text-[#D6B98C] text-sm uppercase tracking-[0.3em] mb-7" style="font-family: 'Manrope', sans-serif;">Quick Info</h3>
 
                     <ul class="space-y-5">
-                        @if($destination->region)
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-[#D6B98C] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-                            </svg>
-                            <div>
-                                <span class="block text-[10px] uppercase tracking-wider text-[#F8F5F0]/40 mb-0.5" style="font-family: 'Manrope', sans-serif;">Region</span>
-                                <span class="text-[#F8F5F0]/80 text-sm" style="font-family: 'Inter', sans-serif;">{{ $destination->region }}</span>
-                            </div>
-                        </li>
-                        @endif
-
-                        @if($destination->location)
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-[#D6B98C] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            <div>
-                                <span class="block text-[10px] uppercase tracking-wider text-[#F8F5F0]/40 mb-0.5" style="font-family: 'Manrope', sans-serif;">Location</span>
-                                <span class="text-[#F8F5F0]/80 text-sm" style="font-family: 'Inter', sans-serif;">{{ $destination->location }}</span>
-                            </div>
-                        </li>
-                        @endif
 
                         @if($destination->trips->isNotEmpty())
                         <li class="flex items-start gap-3">

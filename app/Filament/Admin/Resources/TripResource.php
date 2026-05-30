@@ -35,7 +35,7 @@ class TripResource extends Resource
 {
     protected static ?string $model = Trip::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-map';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
 
     protected static ?string $navigationLabel = 'Trips';
 

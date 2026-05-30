@@ -53,15 +53,6 @@
                                 loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
 
-                            {{-- Region badge --}}
-                            @if($destination->region)
-                            <div class="absolute top-5 left-5">
-                                <span class="bg-[#D6B98C] text-[#0F172A] text-[10px] uppercase tracking-[0.2em] px-3 py-1.5"
-                                      style="font-family: 'Manrope', sans-serif;">
-                                    {{ $destination->region }}
-                                </span>
-                            </div>
-                            @endif
 
                             {{-- Explore CTA --}}
                             <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -74,11 +65,6 @@
 
                         {{-- Content --}}
                         <div>
-                            @if($destination->location)
-                            <p class="text-[#D6B98C] text-[11px] uppercase tracking-[0.2em] mb-2" style="font-family: 'Manrope', sans-serif;">
-                                {{ $destination->location }}
-                            </p>
-                            @endif
 
                             <h3 class="text-[#0F172A] font-light mb-3 group-hover:text-[#1E3A5F] transition-colors duration-300"
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 1.75rem;">

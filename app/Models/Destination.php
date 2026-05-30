@@ -13,8 +13,6 @@ class Destination extends Model
         'short_description',
         'description',
         'image',
-        'location',
-        'region',
         'featured',
         'sort_order',
     ];

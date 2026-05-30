@@ -31,7 +31,7 @@ class DestinationResource extends Resource
 {
     protected static ?string $model = Destination::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-globe-alt';
+    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
 
     protected static ?string $navigationLabel = 'Destinations';
 
@@ -57,14 +57,6 @@ class DestinationResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->unique(Destination::class, 'slug', ignoreRecord: true),
-
-                    TextInput::make('location')
-                        ->label('Location')
-                        ->maxLength(255),
-
-                    TextInput::make('region')
-                        ->label('Region')
-                        ->maxLength(255),
 
                     Textarea::make('short_description')
                         ->label('Short Description')
@@ -118,14 +110,6 @@ class DestinationResource extends Resource
                     ->label('Name')
                     ->searchable()
                     ->sortable(),
-
-                TextColumn::make('location')
-                    ->label('Location')
-                    ->searchable(),
-
-                TextColumn::make('region')
-                    ->label('Region')
-                    ->badge(),
 
                 IconColumn::make('featured')
                     ->label('Featured')

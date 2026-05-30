@@ -21,7 +21,7 @@ class ManageSettings extends Page implements HasSchemas
 {
     use InteractsWithSchemas;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static ?string $navigationLabel = 'Settings';
 

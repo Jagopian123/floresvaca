@@ -203,11 +203,6 @@
 
                     {{-- Content --}}
                     <div class="absolute bottom-0 left-0 right-0 p-7 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                        @if($destination->location)
-                            <p class="text-[#D6B98C] text-[10px] uppercase tracking-[0.3em] mb-2" style="font-family: 'Manrope', sans-serif;">
-                                {{ $destination->location }}
-                            </p>
-                        @endif
                         <h3 class="text-[#F8F5F0] text-2xl md:text-3xl font-light mb-2" style="font-family: 'Cormorant Garamond', serif;">
                             {{ $destination->name }}
                         </h3>
