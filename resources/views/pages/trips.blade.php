@@ -69,7 +69,7 @@
                         {{-- Image --}}
                         <div class="relative overflow-hidden mb-5" style="aspect-ratio: 4/3;">
                             <img
-                                :src="trip.image ? '/storage/' + trip.image : 'https://images.unsplash.com/photo-1561304929-81e1e4f702c5?w=800&q=80'"
+                                :src="trip.image || 'https://images.unsplash.com/photo-1561304929-81e1e4f702c5?w=800&q=80'"
                                 :alt="trip.title"
                                 class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                                 loading="lazy">

@@ -106,7 +106,20 @@
                             <div class="pb-8 {{ $loop->last ? '' : 'border-b border-[#0F172A]/8' }} flex-1">
                                 <p class="text-[#D6B98C] text-xs uppercase tracking-[0.2em] mb-2" style="font-family: 'Manrope', sans-serif;">Day {{ $itinerary->day }}</p>
                                 <h4 class="text-[#0F172A] text-xl font-light mb-3" style="font-family: 'Cormorant Garamond', serif;">{{ $itinerary->title }}</h4>
-                                <p class="text-[#0F172A]/60 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">{{ $itinerary->description }}</p>
+                                @php
+                                    $lines = preg_split('/\.\s+(?=\d{1,2}:\d{2})/', $itinerary->description);
+                                @endphp
+                                @if(count($lines) > 1)
+                                    <ul class="space-y-1">
+                                        @foreach($lines as $line)
+                                            <li class="text-[#0F172A]/60 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">
+                                                {{ trim($line) }}{{ str_ends_with(trim($line), '.') ? '' : '.' }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p class="text-[#0F172A]/60 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">{{ $itinerary->description }}</p>
+                                @endif
                             </div>
                         </div>
                         @endforeach
