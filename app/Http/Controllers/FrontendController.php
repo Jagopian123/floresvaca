@@ -65,7 +65,7 @@ class FrontendController extends Controller
     public function trip(string $slug): View
     {
         $trip = Trip::where('slug', $slug)->firstOrFail();
-        $trip->load(['itineraries', 'includes', 'excludes', 'thingsToBring', 'destination']);
+        $trip->load(['itineraries', 'includes', 'excludes', 'thingsToBring']);
         $settings = Setting::allKeyed();
 
         return view('pages.trip-detail', compact('trip', 'settings'));
