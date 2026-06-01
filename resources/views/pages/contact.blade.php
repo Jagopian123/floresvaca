@@ -25,7 +25,7 @@
     <div class="relative z-10 section-padding pb-16 md:pb-24">
         <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-4" style="font-family: 'Manrope', sans-serif;">Let's Connect</p>
         <h1 class="text-[#F8F5F0] font-light leading-tight" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem);">
-            We'd Love to Hear<br>from You.
+            Let’s Plan Your Journey Together
         </h1>
     </div>
 </section>

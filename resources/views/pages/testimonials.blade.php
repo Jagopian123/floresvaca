@@ -18,7 +18,7 @@
     <div class="relative z-10 section-padding pb-16 md:pb-24">
         <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-4" style="font-family: 'Manrope', sans-serif;">Real Voices</p>
         <h1 class="text-[#F8F5F0] font-light leading-tight" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem);">
-            Stories from Those<br>Who Explored.
+            Traveler Reviews & Testimonials
         </h1>
     </div>
 </section>
