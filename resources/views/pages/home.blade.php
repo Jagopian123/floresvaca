@@ -299,32 +299,7 @@ with Us?<br>
 {{-- ============================================================
      5. TESTIMONIALS
      ============================================================ --}}
-@php
-    $staticTestimonials = [
-        [
-            'name'    => 'Sarah M.',
-            'country' => 'Australia',
-            'rating'  => 5,
-            'content' => 'Flores completely changed the way I see travel. Our guide knew every hidden corner of the island — the sunrise at Kelimutu was unlike anything I\'ve ever witnessed. PT Flores Vacation Tour made everything seamless and personal.',
-        ],
-        [
-            'name'    => 'Lars & Emma',
-            'country' => 'Netherlands',
-            'rating'  => 5,
-            'content' => 'We spent 10 days sailing through Komodo and trekking to Wae Rebo. Every detail was thoughtfully arranged. The local guides were warm, knowledgeable, and genuinely passionate about their home island. A trip we\'ll talk about for years.',
-        ],
-        [
-            'name'    => 'James R.',
-            'country' => 'United Kingdom',
-            'rating'  => 5,
-            'content' => 'I\'ve traveled to 40+ countries and Flores stands apart. The team took care of everything — accommodation, transport, meals — so I could fully immerse myself in the experience. Komodo dragons, pink beach, and the friendliest people I\'ve ever met.',
-        ],
-    ];
-    $displayTestimonials = $featuredTestimonials->isNotEmpty()
-        ? $featuredTestimonials->take(3)
-        : collect($staticTestimonials);
-@endphp
-
+@if($featuredTestimonials->isNotEmpty())
 <section class="py-24 md:py-32" style="background-color: #1E3A5F;">
     <div class="section-padding">
 
@@ -336,19 +311,13 @@ with Us?<br>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($displayTestimonials as $testimonial)
-            @php
-                $name    = is_array($testimonial) ? $testimonial['name']    : $testimonial->name;
-                $country = is_array($testimonial) ? $testimonial['country'] : ($testimonial->country ?? '');
-                $rating  = is_array($testimonial) ? $testimonial['rating']  : $testimonial->rating;
-                $content = is_array($testimonial) ? $testimonial['content'] : $testimonial->content;
-            @endphp
+            @foreach($featuredTestimonials->take(3) as $testimonial)
             <div class="bg-[#F8F5F0]/5 backdrop-blur-sm border border-[#F8F5F0]/10 p-8 flex flex-col gap-5">
 
                 {{-- Stars --}}
                 <div class="flex gap-1">
                     @for($i = 1; $i <= 5; $i++)
-                        <span class="text-base {{ $i <= $rating ? 'text-[#D6B98C]' : 'text-[#F8F5F0]/20' }}">&#9733;</span>
+                        <span class="text-base {{ $i <= $testimonial->rating ? 'text-[#D6B98C]' : 'text-[#F8F5F0]/20' }}">&#9733;</span>
                     @endfor
                 </div>
 
@@ -358,19 +327,19 @@ with Us?<br>
                 {{-- Quote --}}
                 <blockquote class="text-[#F8F5F0]/80 leading-relaxed flex-1 italic"
                             style="font-family: 'Cormorant Garamond', serif; font-size: 1.075rem;">
-                    {{ $content }}
+                    {{ $testimonial->content }}
                 </blockquote>
 
                 {{-- Author --}}
                 <div class="flex items-center gap-3 pt-4 border-t border-[#F8F5F0]/10">
                     <div class="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-[#0F172A] text-sm font-bold"
                          style="background-color: #D6B98C; font-family: 'Manrope', sans-serif;">
-                        {{ strtoupper(substr($name, 0, 1)) }}
+                        {{ strtoupper(substr($testimonial->name, 0, 1)) }}
                     </div>
                     <div>
-                        <p class="text-[#F8F5F0] text-sm font-medium" style="font-family: 'Manrope', sans-serif;">{{ $name }}</p>
-                        @if($country)
-                            <p class="text-[#D6B98C]/70 text-xs uppercase tracking-widest mt-0.5" style="font-family: 'Manrope', sans-serif;">{{ $country }}</p>
+                        <p class="text-[#F8F5F0] text-sm font-medium" style="font-family: 'Manrope', sans-serif;">{{ $testimonial->name }}</p>
+                        @if(!empty($testimonial->country))
+                            <p class="text-[#D6B98C]/70 text-xs uppercase tracking-widest mt-0.5" style="font-family: 'Manrope', sans-serif;">{{ $testimonial->country }}</p>
                         @endif
                     </div>
                 </div>
@@ -387,6 +356,7 @@ with Us?<br>
 
     </div>
 </section>
+@endif
 
 
 {{-- ============================================================

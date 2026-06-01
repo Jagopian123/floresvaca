@@ -17,7 +17,7 @@ class FrontendController extends Controller
     {
         $featuredTrips        = Trip::where('featured', true)->where('is_active', true)->orderBy('sort_order')->take(5)->get();
         $featuredDestinations = Destination::where('featured', true)->orderBy('sort_order')->take(4)->get();
-        $featuredTestimonials = Testimonial::where('featured', true)->latest()->take(6)->get();
+        $featuredTestimonials = Testimonial::latest()->take(3)->get();
         $featuredGallery      = Gallery::where('featured', true)->latest()->take(6)->get();
         $settings             = Setting::allKeyed();
 
