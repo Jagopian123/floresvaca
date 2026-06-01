@@ -33,7 +33,7 @@
     <div class="section-padding">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
-            <div class="sticky top-28">
+            <div class="lg:sticky lg:top-28">
                 <div class="relative aspect-[3/4] overflow-hidden">
                     <img
                         src="{{ $settings['about_who_image'] ?? 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80' }}"
