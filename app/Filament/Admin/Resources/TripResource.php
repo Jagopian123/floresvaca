@@ -12,7 +12,6 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -22,7 +21,6 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
@@ -46,15 +44,6 @@ class TripResource extends Resource
 
             Section::make('Basic Info')
                 ->components([
-                    Select::make('category')
-                        ->label('Category')
-                        ->options([
-                            'phinisi'  => 'Phinisi',
-                            'overland' => 'Overland',
-                            'day-trip' => 'Day Trip',
-                        ])
-                        ->required(),
-
                     TextInput::make('title')
                         ->label('Trip Title')
                         ->required()
@@ -100,16 +89,6 @@ class TripResource extends Resource
                         ->numeric()
                         ->minValue(1)
                         ->required(),
-
-                    TextInput::make('min_pax')
-                        ->label('Min Pax')
-                        ->numeric()
-                        ->minValue(1),
-
-                    TextInput::make('max_pax')
-                        ->label('Max Pax')
-                        ->numeric()
-                        ->minValue(1),
 
                     TextInput::make('sort_order')
                         ->label('Sort Order')
@@ -251,16 +230,6 @@ class TripResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('category')
-                    ->label('Category')
-                    ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'phinisi'  => 'primary',
-                        'overland' => 'success',
-                        'day-trip' => 'warning',
-                        default    => 'gray',
-                    }),
-
                 TextColumn::make('duration_days')
                     ->label('Days')
                     ->sortable(),
@@ -283,13 +252,6 @@ class TripResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('category')
-                    ->options([
-                        'phinisi'  => 'Phinisi',
-                        'overland' => 'Overland',
-                        'day-trip' => 'Day Trip',
-                    ]),
-
                 TernaryFilter::make('featured')
                     ->label('Featured'),
 

@@ -31,15 +31,6 @@
             <span class="text-[#D6B98C]">{{ $trip->title }}</span>
         </nav>
 
-        @if($trip->category)
-        <div class="mb-4">
-            <span class="bg-[#D6B98C] text-[#0F172A] text-[10px] uppercase tracking-[0.2em] px-3 py-1.5"
-                  style="font-family: 'Manrope', sans-serif;">
-                {{ $trip->category }}
-            </span>
-        </div>
-        @endif
-
         <h1 class="text-[#F8F5F0] font-light leading-tight mb-6"
             style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem);">
             {{ $trip->title }}
@@ -53,14 +44,6 @@
                 </svg>
                 <span class="text-sm" style="font-family: 'Manrope', sans-serif;">{{ $trip->duration_days }} {{ $trip->duration_days > 1 ? 'Days' : 'Day' }}</span>
             </div>
-            @if($trip->min_pax)
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-[#D6B98C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-                <span class="text-sm" style="font-family: 'Manrope', sans-serif;">Min {{ $trip->min_pax }} pax</span>
-            </div>
-            @endif
         </div>
     </div>
 </section>
@@ -206,24 +189,6 @@
                                 <span class="text-[#F8F5F0]/50 text-xs uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Duration</span>
                                 <span class="text-[#F8F5F0] text-sm" style="font-family: 'Inter', sans-serif;">{{ $trip->duration_days }} {{ $trip->duration_days > 1 ? 'Days' : 'Day' }}</span>
                             </li>
-                            @if($trip->min_pax)
-                            <li class="flex items-center justify-between">
-                                <span class="text-[#F8F5F0]/50 text-xs uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Min Pax</span>
-                                <span class="text-[#F8F5F0] text-sm" style="font-family: 'Inter', sans-serif;">{{ $trip->min_pax }} Person{{ $trip->min_pax > 1 ? 's' : '' }}</span>
-                            </li>
-                            @endif
-                            @if($trip->max_pax)
-                            <li class="flex items-center justify-between">
-                                <span class="text-[#F8F5F0]/50 text-xs uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Max Pax</span>
-                                <span class="text-[#F8F5F0] text-sm" style="font-family: 'Inter', sans-serif;">{{ $trip->max_pax }} Person{{ $trip->max_pax > 1 ? 's' : '' }}</span>
-                            </li>
-                            @endif
-                            @if($trip->category)
-                            <li class="flex items-center justify-between">
-                                <span class="text-[#F8F5F0]/50 text-xs uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Type</span>
-                                <span class="text-[#F8F5F0] text-sm" style="font-family: 'Inter', sans-serif;">{{ $trip->category }}</span>
-                            </li>
-                            @endif
                         </ul>
 
                         {{-- Book via WA --}}

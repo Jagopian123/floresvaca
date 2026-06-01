@@ -99,22 +99,7 @@
 </section>
 
 
-{{-- CTA Strip --}}
-<section class="py-20" style="background-color: #2D5A4A;">
-    <div class="section-padding flex flex-col md:flex-row items-center justify-between gap-8">
-        <div>
-            <p class="text-[#D6B98C] text-xs uppercase tracking-[0.3em] mb-2" style="font-family: 'Manrope', sans-serif;">Can't decide?</p>
-            <h3 class="text-[#F8F5F0] text-2xl md:text-3xl font-light" style="font-family: 'Cormorant Garamond', serif;">
-                Let us curate the perfect route for you.
-            </h3>
-        </div>
-        <a href="{{ route('contact') }}" class="btn-sand flex-shrink-0">
-            Talk to Us
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-        </a>
-    </div>
-</section>
+{{-- CTA --}}
+@include('components.cta-section')
 
 @endsection

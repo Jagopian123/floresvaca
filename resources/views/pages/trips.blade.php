@@ -30,15 +30,7 @@
 
 {{-- Trips with Filter --}}
 <section class="py-24 md:py-32 bg-[#F8F5F0]"
-         x-data="{
-             activeFilter: 'all',
-             filters: ['All', 'Phinisi Ship', 'Overland', 'Day Trip'],
-             trips: {{ $trips->toJson() }},
-             get filteredTrips() {
-                 if (this.activeFilter === 'all') return this.trips;
-                 return this.trips.filter(t => t.category === this.activeFilter);
-             }
-         }">
+         x-data="{ trips: {{ $trips->toJson() }} }">
     <div class="section-padding">
 
         {{-- Header --}}
@@ -47,22 +39,9 @@
             <h2 class="section-title">All Trips</h2>
         </div>
 
-        {{-- Filter Tabs --}}
-        <div class="flex flex-wrap gap-3 mb-14">
-            @foreach(['all' => 'All', 'Phinisi Ship' => 'Phinisi Ship', 'Overland' => 'Overland', 'Day Trip' => 'Day Trip'] as $key => $label)
-            <button
-                @click="activeFilter = '{{ $key }}'"
-                :class="activeFilter === '{{ $key }}' ? 'bg-[#0F172A] text-[#F8F5F0]' : 'bg-transparent text-[#0F172A]/60 hover:text-[#0F172A]'"
-                class="border border-[#0F172A]/20 text-xs uppercase tracking-[0.2em] px-5 py-2.5 transition-all duration-200"
-                style="font-family: 'Manrope', sans-serif;">
-                {{ $label }}
-            </button>
-            @endforeach
-        </div>
-
         {{-- Trips Grid (Alpine-rendered) --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <template x-for="trip in filteredTrips" :key="trip.id">
+            <template x-for="trip in trips" :key="trip.id">
                 <article class="group cursor-pointer">
                     <a :href="'/trips/' + trip.slug">
 
@@ -75,12 +54,6 @@
                                 loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/50 to-transparent opacity-70"></div>
 
-                            {{-- Category badge --}}
-                            <div class="absolute top-4 left-4">
-                                <span class="bg-[#D6B98C] text-[#0F172A] text-[10px] uppercase tracking-[0.2em] px-3 py-1.5"
-                                      style="font-family: 'Manrope', sans-serif;"
-                                      x-text="trip.category || 'Adventure'"></span>
-                            </div>
                         </div>
 
                         {{-- Content --}}
@@ -92,12 +65,6 @@
                                     </svg>
                                     <span x-text="trip.duration_days + (trip.duration_days > 1 ? ' Days' : ' Day')"></span>
                                 </span>
-                                <template x-if="trip.min_pax">
-                                    <span class="text-[#0F172A]/30 text-[10px]">·</span>
-                                    <span class="text-[#D6B98C] text-xs" style="font-family: 'Manrope', sans-serif;">
-                                        Min <span x-text="trip.min_pax"></span> pax
-                                    </span>
-                                </template>
                             </div>
 
                             <h3 class="text-[#0F172A] text-xl font-light leading-snug mb-2 group-hover:text-[#1E3A5F] transition-colors duration-300"
@@ -128,9 +95,9 @@
             </template>
 
             {{-- Empty state --}}
-            <div x-show="filteredTrips.length === 0" class="col-span-full text-center py-20">
+            <div x-show="trips.length === 0" class="col-span-full text-center py-20">
                 <p class="text-[#0F172A]/30 text-2xl" style="font-family: 'Cormorant Garamond', serif;">
-                    No trips in this category yet.
+                    No trips available yet.
                 </p>
             </div>
         </div>
@@ -140,23 +107,6 @@
 
 
 {{-- CTA --}}
-<section class="relative py-32 overflow-hidden">
-    <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80" alt="" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-[#0F172A]/75"></div>
-    </div>
-    <div class="relative z-10 section-padding text-center">
-        <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-6" style="font-family: 'Manrope', sans-serif;">Custom Journey</p>
-        <h2 class="text-[#F8F5F0] font-light mb-6" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem);">
-            Don't see what you're looking for?<br>Let's design it together.
-        </h2>
-        <a href="{{ route('contact') }}" class="btn-sand">
-            Request Custom Trip
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-        </a>
-    </div>
-</section>
+@include('components.cta-section')
 
 @endsection

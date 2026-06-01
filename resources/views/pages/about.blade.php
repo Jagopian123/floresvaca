@@ -20,7 +20,7 @@
     </div>
 
     <div class="relative z-10 section-padding pb-16 md:pb-24">
-        <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-4" style="font-family: 'Manrope', sans-serif;">Our Story</p>
+        <p class="text-[#D6B98C] text-xs uppercase tracking-[0.4em] mb-4" style="font-family: 'Manrope', sans-serif;">About Flores Fun Tour</p>
         <h1 class="text-[#F8F5F0] font-light leading-tight" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem);">
             Born from Flores,<br>Made for the World.
         </h1>
@@ -47,22 +47,15 @@
             </div>
 
             <div>
-                <p class="section-subtitle mb-6">Who We Are</p>
+                <p class="section-subtitle mb-6">Get to Know Flores Fun Tour</p>
                 <h2 class="section-title mb-8 leading-snug">
-                    More Than a Tour Company.<br>
-                    <em style="font-style: italic; color: #1E3A5F;">We're Your Local Family.</em>
+                    Your Trusted Partner for Exploring Flores Island<br>
+                    
                 </h2>
 
                 <div class="space-y-6 text-[#0F172A]/65 leading-relaxed" style="font-family: 'Inter', sans-serif; font-size: 1.0625rem;">
                     <p>
-                        PT. Flores Vacation Tour was founded in 2015 by a group of Flores-born guides who believed that the best way to share their island was through honest, personal, and deeply local experiences. Not package tours. Not checkboxes. Real connections.
-                    </p>
-                    <p>
-                        We've guided thousands of travelers from across the world through Flores — from the iridescent lakes of Kelimutu, to the ancient villages of Wae Rebo, to the dragon-filled shores of Komodo. Every journey is crafted with the same care we'd give a friend visiting home for the first time.
-                    </p>
-                    <p>
-                        Our team is made up of certified guides, local drivers, expert sailors, and passionate storytellers — all born and raised in the villages, forests, and coastal towns of Flores and Nusa Tenggara.
-                    </p>
+Flores Fun Tour is a licensed local travel operator based in Labuan Bajo. With a passion for showcasing the beauty of Flores, we specialize in creating authentic journeys across iconic destinations such as Komodo Island, Padar, Wae Rebo, and Kelimutu. Our mission is to provide unforgettable adventures while ensuring your comfort, safety, and satisfaction. Whether you’re joining an Open Trip, enjoying a Private Trip, or sailing on a Phinisi boat, our team is dedicated to making your travel experience smooth, memorable, and truly unique.                    </p>
                 </div>
 
                 <div class="mt-12 pt-12 border-t border-[#0F172A]/10 grid grid-cols-3 gap-8">
@@ -126,21 +119,6 @@
 
 
 {{-- CTA --}}
-<section class="py-24 bg-[#D6B98C]">
-    <div class="section-padding text-center">
-        <h2 class="text-[#0F172A] font-light mb-6" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem);">
-            Come, Let's Explore Flores Together.
-        </h2>
-        <p class="text-[#0F172A]/70 text-base mb-10 max-w-lg mx-auto" style="font-family: 'Inter', sans-serif;">
-            Reach out and we'll craft the perfect journey for you — personal, authentic, unforgettable.
-        </p>
-        <a href="{{ route('contact') }}" class="btn-primary">
-            Get in Touch
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-        </a>
-    </div>
-</section>
+@include('components.cta-section')
 
 @endsection
